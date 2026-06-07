@@ -49,13 +49,13 @@ O - Open/Closed Principle (Princípio Aberto/Fechado)
 Classes devem estar abertas para extensão, mas fechadas para modificação.
 
 L - Liskov Substitution Principle (Princípio da Substituição de Liskov)
-Uma classe derivada pode substituir sua classe base sem quebrar a aplicação.
+Uma classe derivada pode substituir sua classe base sem quebrar a aplicação, 
 
-I -  Interface Segregation (Segregação de Interface)
-Interfaces gordas são ruins. Prefira várias interfaces pequenas e específicas. Cliente não deveria ser forçado a depender do que não usa.
+I - Interface Segregation Principle (Princípio da Segregação de Interfaces)
+É melhor ter várias interfaces pequenas e específicas do que uma interface enorme, não se deve forçar uma classe a implementar métodos que ela não precisa.
 
-D -  Dependency Inversion (Inversão de Dependência)
-Dependa de abstrações (interfaces), não de classes concretas. 
+D - Dependency Inversion Principle (Princípio da Inversão de Dependência)
+Dependa de abstrações (interfaces), não de classes concretas, exemplo Pagamento deve depender da interface Banco(Abstrata) e não de uma implementação concreta(Banco do Brasil)
 
 
 ### Springboot e NestJS implementam:
