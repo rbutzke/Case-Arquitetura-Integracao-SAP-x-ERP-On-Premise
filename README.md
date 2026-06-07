@@ -107,6 +107,7 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 ### Software e Licenças
 
 | Item	| Especificação |
+|------|-------|
 | Proxmox VE |	Community Edition (gratuita) |
 | Ubuntu Server | 26.04 LTS (gratuito) |
 | Kubernetes | K3s ou kubeadm (gratuito) |
