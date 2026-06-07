@@ -144,9 +144,9 @@ Mensagens por hora por Consumer: 12 × 60 = 720 msg/hora
 
 | Descritivo | Local | Responsavel | 
 |----|------|-----------|
-|SAP ECC | On Premise | SAP|
-|Integrador | AWS Cloud | Time do Projeto |
-|ERP Nacional | IBM Cloud | Nacional |
+|SAP ECC | On Premise | Empresa XYZ |
+|Integrador | On Premise | Empresa XYZ |
+|ERP Nacional | On Premise | Empresa XYZ |
 
 
 ## Tecnologias:
@@ -182,7 +182,9 @@ O Producer deverá validar e posteriormente converter o JSON para o Padrao de Me
 Os Consumers deveráo estar monitorando as Exchanges/Queues , sendo assim o que estiver livre deverá pegar a mensagem convertida(XML) e inserir na respectiva tabela do postgres com o status Ready for shipment,
 após efetuar o insert only com sucesso deverá retornar http code 200 ao Nginx que fará o retorno a sua respectiva origem, em caso de erro deverá retornar 400 .
 
-O RabbitMQ vai utilizar Persistent Volume no EKS , basicamente serve para manter os dados mesmo após o pod ser reiniciado, recriado ou movido para outro nó. 
+O Nginx vai estar operando em modo cluster.
+
+O RabbitMQ vai estar operando em modo cluster.
 
 O RabbitMQ deverá possuir Dead Letter Exchange configurada enviando após 3 tentativas falhas para DLQ Consumer
 
