@@ -98,13 +98,19 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 | Componente | Especificação | 
 |------|-------|
 | 4 vCPUs | 2 cores físicos com 2 threads cada |
-| Memória RAM | 16G |
-| Armazenamento | SSD 10tb |  
+| Processador |  Intel Xeon W3-2435 (8C/16T, 3.1GHz)   |
+| Memória RAM | 32GB DDR5 ECC (2x16GB) |
+| Armazenamento Primario | 2x HD 6 tb tb |
+| Armazenamento Secundario | 2x SSD 2 tb |
 
- Disponibilidade para redundância dentro da própria região.  
+ 
+### Software e Licenças
 
-
-
+| Item	| Especificação |
+| Proxmox VE |	Community Edition (gratuita) |
+| Ubuntu Server | 26.04 LTS (gratuito) |
+| Kubernetes | K3s ou kubeadm (gratuito) |
+| Monitoramento |	Prometheus + Grafana (gratuito) |
 
 Sob Demanda (On-Demand)	US$ 0,20  
 
