@@ -113,21 +113,6 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 | Kubernetes | K3s ou kubeadm (gratuito) |
 | Monitoramento |	Prometheus + Grafana (gratuito) |
 
-Sob Demanda (On-Demand)	US$ 0,20  
-
-US$ 0,20 × 720h	= US$ 144,00
-
-A m6i.xlarge suporta 48 pods
-
-Para este plano é contemplado o Provisioned Control Plane Standart
-
-Para o Rabbitmq para o Persistent Volume será necessário 10 GB de armazenamento persistente (EBS na AWS)
-
-10GB x US 0,10 = US 1,00.
-
-Custo estimado: US$ 1.00 por mês (gp2 volume).
-
-Custo total: 73.00	+ US$ 144.0 + US$ 1.00 = US$ 218 mensal 
 
 ## Periodicidade 
 Será conforme demanda dos Sistemas SAP ECC x ERP Nacional
