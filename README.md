@@ -87,7 +87,7 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 
 
-## KS + Virtualizacap Custo Computacional
+## SO Ubuntu Server + Virtualizacao Proxmox  + Cluster Kubernets
 
 Custo do Plano de Controle (EKS Cluster) - US$ 0,10 por hora, versão Standart do Kubernets.  
 
