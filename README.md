@@ -98,7 +98,9 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 | Armazenamento Secundario | 2x SSD 2 tb |
 | Fonte | 750W 80+ Platinum |
 
-Custo da Computação (Onde os Pods Rodam) Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
+Custo da Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
+
+Os Pods devem rodar nesta Workstation
  
 ### Software e Licenças
 
