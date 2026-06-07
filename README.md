@@ -113,7 +113,8 @@ Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
 | Virtualização | Proxmox VE Community Edition (gratuita) |
 | So | Ubuntu Server 26.04 LTS (gratuito) |
 | Cluster | Kubernetes K3s ou kubeadm (gratuito) |
-| Monitoramento |	Prometheus + Grafana (gratuito) |
+| Métricas | Prometheus (gratuito) |
+| Monitoramento |	Grafana (gratuito) |
 | Mensageria | RabbitMQ (gratuito)|
 | Documentação | Swagger (gratuito) |
 | Versionamento / CI/CD | Gitlab self-managed (gratuito) | 
