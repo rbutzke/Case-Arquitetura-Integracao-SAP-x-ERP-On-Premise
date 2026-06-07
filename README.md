@@ -42,11 +42,11 @@ Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitan
 
 ### Solid  
 
-S - Single Responsibility (Responsabilidade Única)
-Cada classe faz uma coisa só, UserService cuida de usuário, EmailService envia email, Se a classe está com vários motivos pra mudar, está incorreta
+S - Single Responsibility Principle (Princípio da Responsabilidade Única)
+Uma classe deve ter apenas um motivo para mudar, cada classe resolve um único problema, se ela faz muitas coisas diferentes esta incorreto.
 
-O - Open/Closed (Aberto/Fechado)
-Aberto pra extensão, fechado pra modificação. Em vez de editar código existente pra adicionar comportamento, você estende (herança, composição, interfaces).  
+O - Open/Closed Principle (Princípio Aberto/Fechado)
+Classes devem estar abertas para extensão, mas fechadas para modificação.
 
 L - Liskov Substitution (Substituição de Liskov)
 Se B é subclasse de A, dá pra trocar A por B sem quebrar nada. Não pode enfraquecer pré-condições nem strengthening pós-condições.
@@ -55,7 +55,7 @@ I -  Interface Segregation (Segregação de Interface)
 Interfaces gordas são ruins. Prefira várias interfaces pequenas e específicas. Cliente não deveria ser forçado a depender do que não usa.
 
 D -  Dependency Inversion (Inversão de Dependência)
-Dependa de abstrações (interfaces), não de classes concretas. Módulo de alto nível não conhece implementação, só o contrato.
+Dependa de abstrações (interfaces), não de classes concretas. 
 
 
 ### Springboot e NestJS implementam:
