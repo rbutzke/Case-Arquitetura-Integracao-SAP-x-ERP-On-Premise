@@ -100,9 +100,11 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 | 4 vCPUs | 2 cores físicos com 2 threads cada |
 | Processador |  Intel Xeon W3-2435 (8C/16T, 3.1GHz)   |
 | Memória RAM | 32GB DDR5 ECC (2x16GB) |
-| Armazenamento Primario | 2x HD 6 tb tb |
+| Armazenamento Primario | 2x HD 6 tb |
 | Armazenamento Secundario | 2x SSD 2 tb |
+| Fonte | 750W 80+ Platinum |
 
+Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
  
 ### Software e Licenças
 
