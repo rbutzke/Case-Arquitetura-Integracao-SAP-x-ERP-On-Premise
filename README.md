@@ -57,7 +57,7 @@ D - Dependency Inversion Principle (Princípio da Inversão de Dependência)
 Dependa de abstrações (interfaces), não de classes concretas, exemplo Pagamento deve depender da interface Banco(Abstrata) e não de uma implementação concreta(Banco do Brasil)
 
 
-### Springboot e NestJS implementam:
+### Spring e NestJS implementam:
 
 Arquitetura Modular com Injeção de Dependência gira em torno de @Module. Cada módulo encapsula controllers, providers e exports relacionados. Você compõe a aplicação importando módulos uns nos outros.   
 
