@@ -89,12 +89,6 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 ## SO Ubuntu Server + Virtualizacao Proxmox  + Cluster Kubernets
 
-Custo do Plano de Controle (EKS Cluster) - US$ 0,10 por hora, versão Standart do Kubernets.  
-
-US$ 0,10 x 24 Horas x 30 dias = US$ 73,00
-
-Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7 
-
 | Componente | Especificação | 
 |------|-------|
 | 4 vCPUs | 2 cores físicos com 2 threads cada |
@@ -104,7 +98,7 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 | Armazenamento Secundario | 2x SSD 2 tb |
 | Fonte | 750W 80+ Platinum |
 
-Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
+Custo da Computação (Onde os Pods Rodam) Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
  
 ### Software e Licenças
 
