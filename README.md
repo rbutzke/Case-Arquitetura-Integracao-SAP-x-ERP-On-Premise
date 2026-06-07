@@ -40,23 +40,22 @@ Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)
 
 Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
 
-Springboot e NestJS implementam:
+### Springboot e NestJS implementam:
 
-Arquitetura Modular com Injeção de Dependência  
+Arquitetura Modular com Injeção de Dependência gira em torno de @Module. Cada módulo encapsula controllers, providers e exports relacionados. Você compõe a aplicação importando módulos uns nos outros.   
 
 
-FastAPI implementa:  
+### FastAPI implementa:  
 
 Arquitetura em Camadas 
 
-Camada de Apresentação/Controladores (Presentation/Controller Layer)
-Camada de Serviço/Negócio (Service/Business Layer)
-Camada de Acesso a Dados/Repositórios (Data Access/Repository Layer)
-Camada de Modelo/Entidade (Model/Entity Layer)
+Camada de Apresentação/Controladores (Presentation/Controller Layer)  
 
+Camada de Serviço/Negócio (Service/Business Layer)  
 
+Camada de Acesso a Dados/Repositórios (Data Access/Repository Layer)  
 
-
+Camada de Modelo/Entidade (Model/Entity Layer)  
 
 Caso seja utilizado IA para apoio no processo de desenvolvimento, não será permitido fazer "VibeCode" , pois se faz necessário o conhecimento da codificação e sua respectiva qualidade de entrega.
 
