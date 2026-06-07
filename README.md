@@ -105,7 +105,7 @@ Custo da Computação (Onde os Pods Rodam) Workstation Dell Precision 5860 Tower
 | Item	| Especificação |
 |------|-------|
 | Virtualização | Proxmox VE Community Edition (gratuita) |
-| So | Ubuntu Server 26.04 LTS (gratuito) |
+| SO | Ubuntu Server 26.04 LTS (gratuito) |
 | Cluster | Kubernetes K3s ou kubeadm (gratuito) |
 | Métricas | Prometheus (gratuito) |
 | Monitoramento |	Grafana (gratuito) |
