@@ -114,7 +114,9 @@ Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
 | Ubuntu Server | 26.04 LTS (gratuito) |
 | Kubernetes | K3s ou kubeadm (gratuito) |
 | Monitoramento |	Prometheus + Grafana (gratuito) |
-
+| Mensageria | RabbitMQ (gratuito)|
+| Documentação | Swagger (gratuito) |
+| Versionamento / CI/CD | Gitlab self-managed (gratuito) | 
 
 ## Periodicidade 
 Será conforme demanda dos Sistemas SAP ECC x ERP Nacional
