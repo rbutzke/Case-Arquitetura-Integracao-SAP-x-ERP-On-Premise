@@ -39,9 +39,24 @@ Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)
 
 ## Metodologia Aplicada ao Desenvolvimento:
 
-Para criação do Integrador deverá ser utilizada a metologia Spec Drivem Development(SDD) ,
+Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
 
-sempre que possivel os principios do SOLID deverão ser implementados, respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
+SpringBoot implementa:  
+
+Arquitetura em Camadas (tradicional) 
+Camada de Apresentação/Controladores (Presentation/Controller Layer)
+
+
+ou 
+
+Arquitetura Hexagonal (Port e Adpters).
+
+
+FastAPI
+
+NestJS
+
+
 
 Ferramenta de Apoio na Utlização do SDD:  
 
@@ -269,9 +284,10 @@ Todos os WebServices / APIs deverão suportar paginação
 
 Cada Requisição possuirá 60s até apresentar time out , existe um limite de 8 mega de trafego por requisição 
 
-## Desenho EKS namespace Integrador
+## Desenho KS namespace Integrador
 
-<img width="1721" height="753" alt="image" src="https://github.com/user-attachments/assets/fa7217d9-5026-4c1a-a8b5-72799c09090b" />
+<img width="2012" height="759" alt="image" src="https://github.com/user-attachments/assets/6edf2707-7226-4f5f-9a8c-c095794888c7" />
+
 
 
 
