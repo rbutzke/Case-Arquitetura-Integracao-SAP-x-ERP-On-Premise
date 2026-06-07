@@ -11,7 +11,6 @@ Case Arquitetura Integracao SAP x ERP On Premise
 | **VOLUMETRIA** | 350 mil registros/semana (capacidade calculada: 362k) |
 | **ARQUITETURA** | KS + hardware xxxx + RabbitMQ DLQ + PostgreSQL Master/Slave |
 | **DIFERENCIAIS** | Batch adaptativo, Dead Letter Queue, Persistent Volume |
-| **CUSTO MENSAL** | US$ XXX  |
 | **PRAZO ESTIMADO** | 8 a 12 semanas (Em meses: aproximadamente 2 a 3 meses) | 
 | **METODOLOGIA** | Scrum + SOLID + Arquitetura do Framework escolhido | 
 
