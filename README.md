@@ -11,7 +11,7 @@ Case Arquitetura Integracao SAP x ERP On Premise
 | **VOLUMETRIA** | 350 mil registros/semana (capacidade calculada: 362k) |
 | **ARQUITETURA** | KS + hardware xxxx + RabbitMQ DLQ + PostgreSQL Master/Slave |
 | **DIFERENCIAIS** | Batch adaptativo, Dead Letter Queue, Persistent Volume |
-| **CUSTO MENSAL** | US$ 218 (EKS + EC2 + EBS) + US$ 80 (IA Cloud) |
+| **CUSTO MENSAL** | US$ XXX  |
 | **PRAZO ESTIMADO** | 8 a 12 semanas (Em meses: aproximadamente 2 a 3 meses) | 
 | **METODOLOGIA** | Scrum + SOLID + Arquitetura do Framework escolhido | 
 
@@ -39,6 +39,19 @@ Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)
 ## Metodologia Aplicada ao Desenvolvimento:
 
 Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
+
+### Solid  
+
+S -  
+
+O -  
+
+L -  
+
+I -  
+
+D -  
+
 
 ### Springboot e NestJS implementam:
 
@@ -70,7 +83,7 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 
 
-## EKS + EC2 Custo Computacional
+## KS + Virtualizacap Custo Computacional
 
 Custo do Plano de Controle (EKS Cluster) - US$ 0,10 por hora, versão Standart do Kubernets.  
 
