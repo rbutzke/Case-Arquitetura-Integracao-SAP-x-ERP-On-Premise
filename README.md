@@ -17,7 +17,6 @@ Case Arquitetura Integracao SAP x ERP On Premise
 
 
 
-
 ## Contexto de Negócio
 
 A empresa XYZ hoje utiliza somente o SAP ECC , existe a necessidade de integrar Contábil , Financeiro , Jurídico e RH vindos do ERP Nacional recem adquirido.
@@ -41,107 +40,35 @@ Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)
 
 Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
 
-SpringBoot implementa:  
+Springboot e NestJS implementam:
 
-Arquitetura em Camadas (tradicional) 
+Arquitetura Modular com Injeção de Dependência  
+
+
+FastAPI implementa:  
+
+Arquitetura em Camadas 
+
 Camada de Apresentação/Controladores (Presentation/Controller Layer)
-
-
-ou 
-
-Arquitetura Hexagonal (Port e Adpters).
-
-
-FastAPI
-
-NestJS
+Camada de Serviço/Negócio (Service/Business Layer)
+Camada de Acesso a Dados/Repositórios (Data Access/Repository Layer)
+Camada de Modelo/Entidade (Model/Entity Layer)
 
 
 
-Ferramenta de Apoio na Utlização do SDD:  
-
-https://github.com/github/spec-kit
-
-Dentro deste contexto se faz necessário o uso de IA para apoio no processo de desenvolvimento, não sendo o objetio fazer "VibeCode" mas sim utilizar como ferramenta de apoio no processo de desenvolvimento.
 
 
-## Sugestão de IA Cloud 
+Caso seja utilizado IA para apoio no processo de desenvolvimento, não será permitido fazer "VibeCode" , pois se faz necessário o conhecimento da codificação e sua respectiva qualidade de entrega.
 
-| Componente | Especificação | Custo |
-|------------|----------------|----|
-| Minimax 2.7 | 1 Trilhão de parametros ,4500 requisições a cada 5 horas | 20 dolares mensal |
+## Metodologia Scrum:
 
-https://platform.minimax.io/subscribe/token-plan
-
-## Custo Estimado  
-
-4 Usuários a 20 mensal = 80 Dolares mês
-
-
-## Configuração do LLM On Premise (para cenário com restrições de segurança/LGPD)
-
-| Componente | Especificação | Custo |
-|------------|----------------|----|
-| Processador | Intel i7 14700 com 20 núcleos e 28 threads | 2600 |
-| Water Cooler | Corsair Nautilus 360 mm | 800 |
-| Placa Mãe | Asus Z790 PRO com suporte a Bifurcação | 2000 |
-| Memória RAM | 4x 32GB DDR5 6000Hz (total 128GB) | 8000 |
-| Placa de Vídeo | 1x RTX 5090 32GB ou 2x RTX 5060 TI 16GB | RTX5090 = 26999 , RTX5060TI = 3500 | 
-| Fonte | Corsair 1200W Gold | 1500 |
-| SSD | Adata Legend 860, 2TB, M.2 2280 | 1500 |
-| Gabinete | Corsair Obsidian 1000D ou Estação para rigs de mineração | Obsidian=1700 ou Estação=500 |
-| Fans | Cosair 20x de 120mm |1000 |
-| Fans | Corsair  4x de 140mm  | 400 |
+Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetuando entregas semanais.
 
 
 
-## Custo Estimado do Setup 
-
- Utilizando 1 RTX 5090 = 46.499
-
- Utilizando 2 RTX 5060 TI = 26.500
-  
-
-## Harness 
-
-Hermes Agent 
-Possui memoria e aprende com o uso , um dos melhores do mercado 
-
-https://github.com/nousresearch/hermes-agent
 
 
-OpenCode  
-O mais utilizado na Comunidade Open Source
 
-https://opencode.ai/
-
-## Modelos
-  
-Qwen3.6 35b a3e 
-Arquitetura(Moe) 23g quantizado em Q4-K-M com contexto de 262k indicado para codificação , chamada de ferramentas, geração de diagramas , visão , extremamente rapido , entrega em torno de 100 tokens   
-
-https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF
-
-Modelo Qwen3.6 27b 
-Arquitetura (Densa) 17g quantizado em Q4-K-M com contexto de 262k indicado para codificação, raciocinio profundo , geração de diagramas , visão ,modelo lento mas extremamente inteligente, entrega em torno de 21 tokens com MTP ativo entrega 44 tokens porém aumenta o consumo de RAM
-
-https://huggingface.co/unsloth/Qwen3.6-27B-GGUF
-
-Suporte a MTP
-
-https://huggingface.co/unsloth/Qwen3.6-27B-MTP-GGUF
-
-
-## Mecanismos de Inferencia 
-
-LLAMA.CPP focado principalmente em performance , consegue extrair máxima performance do hardware/modelo suporta até 4 usuários simultaneos , mas pode apresentar pequenas instabilidades nestas configs de multi users.
-
-https://github.com/ggml-org/llama.cpp
-
-
-VLLAMA não tão focado em performance e simplicidade mas sim focado principalmente em multi users consegue suportar vários usuarios simultaneos   
-
-https://github.com/erkkimon/vllama
 
 
 ## EKS + EC2 Custo Computacional
