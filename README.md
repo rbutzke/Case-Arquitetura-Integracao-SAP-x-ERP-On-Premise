@@ -100,11 +100,9 @@ Custo da Computação (Onde os Pods Rodam) m6i.xlarge 24/7
 |------|-------|
 | 4 vCPUs | 2 cores físicos com 2 threads cada |
 | Memória RAM | 16G |
-| Processador |  Intel Xeon 8375C (Ice Lake) com até 3.5 GHz e suporte a AVX-512 |
-| Rede |  Largura de banda de até 10 Gbps |
-| Armazenamento | gp2 |  
+| Armazenamento | SSD 10tb |  
 
-Região us-east-1 AWS localizada no Norte da Virgínia, Estados Unidos , mais antiga e que possui multiplas Zonas de Disponibilidade para redundância dentro da própria região.  
+ Disponibilidade para redundância dentro da própria região.  
 
 
 
