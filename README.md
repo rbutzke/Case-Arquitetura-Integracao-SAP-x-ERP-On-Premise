@@ -86,11 +86,11 @@ flowchart LR
 
 *Figura 1 — Topologia geral: ERP Nacional → Camada de Integração → SAP ECC.*
 
-| Camada | Responsabilidade | Exemplos de tecnologia |
+| Camada | Responsabilidade | 
 |---|---|---|
-| ERP Nacional (origem) | Sistemas de operação do dia a dia nas 4 áreas | ERP genérico, APIs REST/SOAP, eventos assíncronos |
-| Camada de Integração | Orquestração, transformação, validação, monitoramento | Middleware ESB, SAP PI/PO, iPaaS, Kafka, custom |
-| SAP ECC (destino) | Backoffice / retaguarda financeira e de RH | BAPIs, IDocs, RFCs, Web Services ABAP |
+| ERP Nacional (origem) | Sistemas de operação do dia a dia nas 4 áreas | 
+| Camada de Integração | Orquestração, transformação, validação, monitoramento | 
+| SAP ECC (destino) | Backoffice / retaguarda financeira e de RH | 
 
 ---
 
@@ -136,13 +136,13 @@ flowchart TB
 
 *Figura 2 — Fluxo detalhado da integração Contábil.*
 
-| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) |
 |---|---|---|---|
-| Plano de contas | Cadastro de contas | SKA1/SKAT | Diária (delta) + carga inicial completa |
-| Lançamentos contábeis | Partidas dobradas | FB01/FB50 (BAPI_ACC_DOCUMENT_POST) | On-line (quase real-time) |
-| Centros de custo | Estrutura de centros | CSKS / CEPC | Diária |
-| Fornecedores / Clientes | Cadastros de parceiros | LFA1 / KNA1 / BP | On-line (criação) + batch (alterações) |
-| Imobilizado | Aquisições, baixas, depreciação | ANLA / ANLB / AS01/AS02 | Diária |
+| Plano de contas | Cadastro de contas | SKA1/SKAT | 
+| Lançamentos contábeis | Partidas dobradas | FB01/FB50 (BAPI_ACC_DOCUMENT_POST) | 
+| Centros de custo | Estrutura de centros | CSKS / CEPC |
+| Fornecedores / Clientes | Cadastros de parceiros | LFA1 / KNA1 / BP | 
+| Imobilizado | Aquisições, baixas, depreciação | ANLA / ANLB / AS01/AS02 | 
 
 ---
 
@@ -191,11 +191,11 @@ flowchart TB
 
 | Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
 |---|---|---|---|
-| NF Entrada (mercadorias) | XML / evento de NF-e | MIGO (BAPI_GOODSMVT_CREATE) + MIRO | On-line |
-| NF Saída | Pedido de venda / remessa | VF01/VF02 (BAPI_BILLINGDOC_CREATEMULTIPLE) | On-line / batch horário |
-| Condições de imposto | Cadastros de impostos | Condições de imposto + tabelas J_1B* | Diária |
-| CFOP / CST | Tabelas fiscais | Map. de CFOP / CST | Carga inicial + delta |
-| SPED | Dados primários do ERP | Geração no SAP a partir dos dados integrados | Mensal |
+| NF Entrada (mercadorias) | XML / evento de NF-e | MIGO (BAPI_GOODSMVT_CREATE) + MIRO | 
+| NF Saída | Pedido de venda / remessa | VF01/VF02 (BAPI_BILLINGDOC_CREATEMULTIPLE) | 
+| Condições de imposto | Cadastros de impostos | Condições de imposto + tabelas J_1B* | 
+| CFOP / CST | Tabelas fiscais | Map. de CFOP / CST | 
+| SPED | Dados primários do ERP | Geração no SAP a partir dos dados integrados | 
 
 ---
 
@@ -243,11 +243,11 @@ flowchart TB
 
 | Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
 |---|---|---|---|
-| Contratos | Cadastros contratuais | Z-tables custom (Z-CONTRATO) | On-line (criação) + diária (alterações) |
-| Processos | Cadastros de litígios | Z-tables custom (Z-LITIGIO) | Diária |
-| Partes | Cadastros de partes | BP (Business Partner) | On-line |
-| Provisões / Contingências | Apuração de valores | FI (lançamentos de provisão) | Mensal ou sob demanda |
-| Prazos / Audiências | Agenda jurídica | Workflows no ECC | Diária (alertas) |
+| Contratos | Cadastros contratuais | Z-tables custom (Z-CONTRATO) | 
+| Processos | Cadastros de litígios | Z-tables custom (Z-LITIGIO) |
+| Partes | Cadastros de partes | BP (Business Partner) | 
+| Provisões / Contingências | Apuração de valores | FI (lançamentos de provisão) |
+| Prazos / Audiências | Agenda jurídica | Workflows no ECC | 
 
 ---
 
@@ -296,11 +296,11 @@ C2 --> B4
 
 | Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
 |---|---|---|---|
-| Cadastro de funcionários | Dados pessoais, contrato | Infotipos PA0000–0002 | On-line (admissão) + batch (alterações) |
-| Organograma | Estrutura organizacional | Infotipos PA0007 / 0008 | Diária |
-| Folha de pagamento | Cálculo do ERP | PC00_M99 (HR PY) — espelho / consolidação | Mensal (fechamento) |
-| Benefícios / Eventos | Férias, afastamentos, 13º | Infotipos PA (férias) + eventos HR PY | Diária / Mensal |
-| Ponto / Frequência | Batidas e ocorrências | Time Management (CAT2 / PT60) | Diária |
+| Cadastro de funcionários | Dados pessoais, contrato | Infotipos PA0000–0002 |
+| Organograma | Estrutura organizacional | Infotipos PA0007 / 0008 | 
+| Folha de pagamento | Cálculo do ERP | PC00_M99 (HR PY) — espelho / consolidação | 
+| Benefícios / Eventos | Férias, afastamentos, 13º | Infotipos PA (férias) + eventos HR PY | 
+| Ponto / Frequência | Batidas e ocorrências | Time Management (CAT2 / PT60) | 
 
 ---
 
