@@ -84,6 +84,110 @@ flowchart LR
   CI1 -.eventos.-> CI4
 ```
 
+*Figura 1 — Topologia geral: ERP Nacional → Camada de Integração → SAP ECC.*
+
+| Camada | Responsabilidade | Exemplos de tecnologia |
+|---|---|---|
+| ERP Nacional (origem) | Sistemas de operação do dia a dia nas 4 áreas | ERP genérico, APIs REST/SOAP, eventos assíncronos |
+| Camada de Integração | Orquestração, transformação, validação, monitoramento | Middleware ESB, SAP PI/PO, iPaaS, Kafka, custom |
+| SAP ECC (destino) | Backoffice / retaguarda financeira e de RH | BAPIs, IDocs, RFCs, Web Services ABAP |
+
+---
+
+## Processo 1 — Integração Contábil
+
+**Escopo:** plano de contas, lançamentos, centros de custo, imobilizado.
+
+```mermaid
+flowchart TB
+  subgraph ORI["<b>ERP Nacional — Contábil</b>"]
+    A1["Plano de Contas<br/>(Conta contábil)"]
+    A2["Lançamentos Contábeis<br/>(Partidas dobradas)"]
+    A3["Centros de Custo<br/>e Lucro"]
+    A4["Fornecedores /<br/>Clientes"]
+    A5["Imobilizado<br/>(Aquisição, Depreciação)"]
+  end
+
+  subgraph MID["<b>Camada de Integração</b>"]
+    B1{{"Mapeamento<br/>Conta x Conta"}}
+    B2["Conversão de<br/>Moeda / Período"]
+    B3["Reconciliação<br/>Periódica"]
+    B4["Auditoria e<br/>Rastreabilidade"]
+  end
+
+  subgraph DST["<b>SAP ECC — FI / CO</b>"]
+    C1["SKA1 / SKAT<br/>Plano de Contas"]
+    C2["FB01 / FB50 / F-22<br/>Documentos Contábeis"]
+    C3["CSKS / CEPC<br/>Centros de Custo / Lucro"]
+    C4["LFA1 / KNA1<br/>Cadastros de Parceiros"]
+    C5["ANLA / ANLB<br/>Ativo Imobilizado"]
+  end
+
+  A1 --> B1 --> C1
+  A2 --> B1 --> C2
+  A3 --> B1 --> C3
+  A4 --> B1 --> C4
+  A5 --> B1 --> C5
+
+  A2 --> B2 --> C2
+  C2 -.batch diário.-> B3
+  B3 -.logs.-> B4
+```
+
+*Figura 2 — Fluxo detalhado da integração Contábil.*
+
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
+|---|---|---|---|
+| Plano de contas | Cadastro de contas | SKA1/SKAT | Diária (delta) + carga inicial completa |
+| Lançamentos contábeis | Partidas dobradas | FB01/FB50 (BAPI_ACC_DOCUMENT_POST) | On-line (quase real-time) |
+| Centros de custo | Estrutura de centros | CSKS / CEPC | Diária |
+| Fornecedores / Clientes | Cadastros de parceiros | LFA1 / KNA1 / BP | On-line (criação) + batch (alterações) |
+| Imobilizado | Aquisições, baixas, depreciação | ANLA / ANLB / AS01/AS02 | Diária |
+
+---
+
+## Processo 2 — Integração Fiscal
+
+**Escopo:** notas fiscais, impostos, obrigações acessórias.
+
+```mermaid
+flowchart TB
+  subgraph ORI["<b>ERP Nacional — Fiscal</b>"]
+    A1["Notas Fiscais<br/>de Entrada e Saída"]
+    A2["Impostos<br/>ICMS / IPI / PIS / COFINS / ISS"]
+    A3["CFOP e CST<br/>(Classificação fiscal)"]
+    A4["Regras de<br/>Tributação"]
+    A5["Obrigações Acessórias<br/>SPED Fiscal / Contribuições"]
+  end
+
+  subgraph MID["<b>Camada de Integração</b>"]
+    B1{{"Determinação<br/>Tributária"}}
+    B2["Conversão<br/>CFOP / CST → SAP"]
+    B3["Cálculo e<br/>Conferência"]
+    B4["Geração de SPED<br/>(via SAP)"]
+  end
+
+  subgraph DST["<b>SAP ECC — FI / MM / SD</b>"]
+    C1["Documento de<br/>Material: MIGO / MIRO"]
+    C2["Documento de<br/>Venda: VF01 / VF02"]
+    C3["Condições de<br/>Imposto (Taxes)"]
+    C4["Tabelas de<br/>Imposto J_1B*"]
+    C5["Relatórios<br/>Fiscais / SPED"]
+  end
+
+  A1 --> B1
+  A1 --> C1
+  A1 --> C2
+  A2 --> B2 --> C3
+  A3 --> B2 --> C3
+  A4 --> B1
+  A5 --> B3 --> B4 --> C5
+  C1 --> C4
+  C2 --> C4
+  C3 --> C4
+```
+
+
 ## Metodologia Aplicada ao Desenvolvimento:
 
 Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
