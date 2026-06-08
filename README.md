@@ -373,7 +373,7 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 
 
-## Hardware para Virtualizacao Proxmox + SO Ubuntu Server + Kubernets
+## Hardware para Virtualizacao Proxmox + SO Ubuntu Server + Kubernetes
 
 | Componente | Especificação | 
 |------|-------|
@@ -386,7 +386,7 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 Custo estimado da Workstation Dell Precision 5860 Tower : R$ 34.900,00
 
-Será provisionada uma segunda Workstation identica a acima , formando um cluster Proxmox de 2 nós
+Será provisionada uma segunda Workstation idêntica a acima , formando um cluster Proxmox de 2 nós
 com replicação do armazenamento.
 
 Sendo assim o valor de 34.900 será x 2 = 69,800
