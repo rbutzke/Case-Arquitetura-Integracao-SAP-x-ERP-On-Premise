@@ -1,6 +1,4 @@
-# Case-Arquitetura-Integracao-SAP-x-ERP-On-Premise
-Case Arquitetura Integracao SAP x ERP On Premise
-
+   
 ## Resumo Executivo
 
 | Campo | Descrição |
@@ -388,7 +386,8 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 
 Custo estimado da Workstation Dell Precision 5860 Tower : R$ 34.900,00
 
-
+Será provisionada uma segunda Workstation identica a acima , formando um cluster Proxmox de 2 nós
+com replicação do armazenamento   
  
 ### Software e Licenças
 
