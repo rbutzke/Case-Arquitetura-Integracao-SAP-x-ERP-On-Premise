@@ -391,7 +391,9 @@ com replicação do armazenamento.
 
 Sendo assim o valor de 34.900 será x 2 = 69,800.  
 
-### Exemplo de Como deve ficar:  
+
+
+### Estrutura Sugerida:  
 
 <img width="506" height="603" alt="image" src="https://github.com/user-attachments/assets/cb3627ae-a30a-4242-a26c-18ea97382a0f" />  
 
