@@ -9,7 +9,7 @@ Case Arquitetura Integracao SAP x ERP On Premise
 | **DESAFIO** | SOAP (SAP) vs REST (ERP) - protocolos incompatíveis |
 | **SOLUÇÃO** | Integrador com conversão REST → SOAP operando no KS |
 | **VOLUMETRIA** | 350 mil registros/semana (capacidade calculada: 362k) |
-| **ARQUITETURA** | Proxmox + Ubuntu VMs + Kubernetes + Workstation + RabbitMQ DLQ + PostgreSQL Master/Slave |
+| **ARQUITETURA** | Proxmox + SO Ubuntu Server + Kubernetes + Workstation + RabbitMQ DLQ + PostgreSQL Master/Slave |
 | **DIFERENCIAIS** | Batch adaptativo, Dead Letter Queue, Persistent Volume |
 | **PRAZO ESTIMADO** | 8 a 12 semanas (Em meses: aproximadamente 2 a 3 meses) | 
 | **METODOLOGIA** | Scrum + SOLID + Arquitetura do Framework escolhido | 
@@ -381,7 +381,7 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 |------|-------|
 | 4 vCPUs | 2 cores físicos com 2 threads cada |
 | Processador |  Intel Xeon W3-2435 (8C/16T, 3.1GHz)   |
-| Memória RAM | 32GB DDR5 ECC (2x16GB) |
+| Memória RAM | 64GB DDR5 ECC (4x16GB) |
 | Armazenamento Primario | 2x HD 6 tb |
 | Armazenamento Secundario | 2x SSD 2 tb |
 | Fonte | 750W 80+ Platinum |
