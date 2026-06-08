@@ -87,7 +87,7 @@ flowchart LR
 *Figura 1 — Topologia geral: ERP Nacional → Camada de Integração → SAP ECC.*
 
 | Camada | Responsabilidade | 
-|---|---|---|
+|---|---|
 | ERP Nacional (origem) | Sistemas de operação do dia a dia nas 4 áreas | 
 | Camada de Integração | Orquestração, transformação, validação, monitoramento | 
 | SAP ECC (destino) | Backoffice / retaguarda financeira e de RH | 
@@ -366,7 +366,7 @@ Caso seja utilizado IA para apoio no processo de desenvolvimento, não será per
 
 ## Metodologia Scrum:
 
-Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetuando entregas semanais.
+Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetuando entregas conforme definição das Sprints.
 
 
 
@@ -386,9 +386,9 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 | Armazenamento Secundario | 2x SSD 2 tb |
 | Fonte | 750W 80+ Platinum |
 
-Custo da Workstation Dell Precision 5860 Tower : Custo estimado de R$ 34.900,00
+Custo estimado da Workstation Dell Precision 5860 Tower : R$ 34.900,00
 
-Os Pods devem rodar nesta Workstation
+
  
 ### Software e Licenças
 
@@ -667,7 +667,7 @@ Build da imagem com tag baseada no commit
 
 Tag latest para ambiente DEV, tag stable para PROD
 
-Push para Amazon ECR (Elastic Container Registry)
+Push para o Cluester
 
 Critério de Sucesso:
 
@@ -804,7 +804,7 @@ A limpeza é realizada apenas no Master, replicada automaticamente para os Slave
 
 | Fase | Período | Atividades Principais | Duração |
 |------|---------|----------------------|---------|
-| Fase 1 | Semana 1-2 | Setup EKS + PostgreSQL Master/Slave + RabbitMQ DLQ | 2 semanas |
+| Fase 1 | Semana 1-2 | Setup KS + PostgreSQL Master/Slave + RabbitMQ DLQ | 2 semanas |
 | Fase 2 | Semana 3-4 | Desenvolvimento Producer/Consumer (REST → SOAP) | 2 semanas |
 | Fase 3 | Semana 5-6 | Cron Job adaptativo + lote dinâmico | 2 semanas |
 | Fase 4 | Semana 7-8 | Monitoramento + Pipeline CI/CD + Testes | 2 semanas |
