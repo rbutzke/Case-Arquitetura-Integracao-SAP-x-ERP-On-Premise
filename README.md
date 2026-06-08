@@ -239,6 +239,58 @@ flowchart TB
   C2 --> C5
 ```
 
+*Figura 4 — Fluxo detalhado da integração Jurídica.*
+
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
+|---|---|---|---|
+| Contratos | Cadastros contratuais | Z-tables custom (Z-CONTRATO) | On-line (criação) + diária (alterações) |
+| Processos | Cadastros de litígios | Z-tables custom (Z-LITIGIO) | Diária |
+| Partes | Cadastros de partes | BP (Business Partner) | On-line |
+| Provisões / Contingências | Apuração de valores | FI (lançamentos de provisão) | Mensal ou sob demanda |
+| Prazos / Audiências | Agenda jurídica | Workflows no ECC | Diária (alertas) |
+
+---
+
+## Processo 4 — Integração RH
+
+**Escopo:** cadastros, organograma, folha, benefícios, ponto.
+
+```mermaid
+flowchart TB
+  subgraph ORI["<b>ERP Nacional — RH</b>"]
+    A1["Cadastro de<br/>Funcionários"]
+    A2["Organograma<br/>e Posições"]
+    A3["Folha de<br/>Pagamento"]
+    A4["Benefícios e<br/>Eventos (férias, afast.)"]
+    A5["Ponto e<br/>Frequência"]
+  end
+
+  subgraph MID["<b>Camada de Integração</b>"]
+    B1{{"Conferência<br/>CPF / Matrícula"}}
+    B2["Cálculo<br/>Líquido / Eventos"]
+    B3["Integração<br/>Bancária"]
+    B4["Auditoria de<br/>Acessos (SoX)"]
+  end
+
+  subgraph DST["<b>SAP ECC — HCM / PA / PY</b>"]
+    C1["PA0000 / 0001 / 0002<br/>Dados Pessoais"]
+    C2["PA0007 / 0008<br/>Organização"]
+    C3["PC00_M99<br/>Folha de Pagamento"]
+    C4["Eventos HR PY<br/>(TEVEN, T559L)"]
+    C5["Time Management<br/>(PT60 / CAT2)"]
+    C6["BP / HR Master<br/>Dados Bancários"]
+  end
+
+  A1 --> B1 --> C1
+  A2 --> B1 --> C2
+  A3 --> B2 --> C3 --> C4
+  A4 --> B2 --> C3
+  A5 --> C5
+  C3 --> B3 --> C6
+  C1 --> B4
+  C2 --> B4
+```
+
 
 ## Metodologia Aplicada ao Desenvolvimento:
 
