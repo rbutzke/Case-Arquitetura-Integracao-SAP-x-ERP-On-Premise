@@ -520,7 +520,7 @@ Cada Requisição possuirá 60s até apresentar time out , existe um limite de 8
 
 
 
-## Desenho EKS namespace Observability
+## Desenho KS namespace Observability
 
 <img width="936" height="534" alt="image" src="https://github.com/user-attachments/assets/6e60934f-c5cb-4b93-a0e6-320d94f5eed0" />
 
