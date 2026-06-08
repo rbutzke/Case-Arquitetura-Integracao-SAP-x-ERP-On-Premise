@@ -137,7 +137,7 @@ flowchart TB
 *Figura 2 — Fluxo detalhado da integração Contábil.*
 
 | Objeto | Origem (ERP Nacional) | Destino (SAP ECC) |
-|---|---|---|---|
+|---|---|---|
 | Plano de contas | Cadastro de contas | SKA1/SKAT | 
 | Lançamentos contábeis | Partidas dobradas | FB01/FB50 (BAPI_ACC_DOCUMENT_POST) | 
 | Centros de custo | Estrutura de centros | CSKS / CEPC |
@@ -189,8 +189,8 @@ flowchart TB
 
 *Figura 3 — Fluxo detalhado da integração Fiscal.*
 
-| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
-|---|---|---|---|
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | 
+|---|---|---|
 | NF Entrada (mercadorias) | XML / evento de NF-e | MIGO (BAPI_GOODSMVT_CREATE) + MIRO | 
 | NF Saída | Pedido de venda / remessa | VF01/VF02 (BAPI_BILLINGDOC_CREATEMULTIPLE) | 
 | Condições de imposto | Cadastros de impostos | Condições de imposto + tabelas J_1B* | 
@@ -241,8 +241,8 @@ flowchart TB
 
 *Figura 4 — Fluxo detalhado da integração Jurídica.*
 
-| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
-|---|---|---|---|
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | 
+|---|---|---|
 | Contratos | Cadastros contratuais | Z-tables custom (Z-CONTRATO) | 
 | Processos | Cadastros de litígios | Z-tables custom (Z-LITIGIO) |
 | Partes | Cadastros de partes | BP (Business Partner) | 
@@ -294,8 +294,8 @@ C2 --> B4
 
 *Figura 5 — Fluxo detalhado da integração RH.*
 
-| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
-|---|---|---|---|
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | 
+|---|---|---|
 | Cadastro de funcionários | Dados pessoais, contrato | Infotipos PA0000–0002 |
 | Organograma | Estrutura organizacional | Infotipos PA0007 / 0008 | 
 | Folha de pagamento | Cálculo do ERP | PC00_M99 (HR PY) — espelho / consolidação | 
