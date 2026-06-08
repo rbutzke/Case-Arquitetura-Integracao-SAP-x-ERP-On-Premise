@@ -254,8 +254,6 @@ WebServices SAP ECC Acessíveis ao Integrador
 
 APIS ERP Nacional Acessíveis ao Integrador  
 
-Acesso a AWS  
-
 
 ## Não Escopo
 Configuração do SAP ECC  
@@ -276,8 +274,6 @@ Configuração Business Intelligence
 
 Configuração do Active Directory
 
-Gestão Manual do EKS
-
 Não será efetuado acesso direto a Base do SAP ECC
 
 Não será efetuado acesso direto a Base do ERP Nacional
@@ -285,10 +281,9 @@ Não será efetuado acesso direto a Base do ERP Nacional
 
 ## Pipeline 
 
-Automatizar o ciclo de vida do integrador, desde a validação de código até a implantação nos ambientes AWS.
+Automatizar o ciclo de vida do integrador, desde a validação de código até a implantação no Cluster.
 
-A Ferramenta base será o GitLab CI/CD 
-
+A Ferramenta base será o GitLab self-managed CI/CD on premise
 ### Fluxo Conceitual
 
 **Etapas:**  
@@ -351,7 +346,7 @@ Teste de conexão simultânea com SAP ECC (mock) e ERP Nacional (mock)
 
 Simulação de alto volume (até 350k registros/semana)
 
-2.3. Testes de Contrato (SDD)
+2.3. Testes de Contrato 
 Validação da API do integrador contra o OpenAPI/Swagger definido pelo FrontEnd Vue.js
 
 Uso da biblioteca schemathesis para geração automática de testes
@@ -391,13 +386,13 @@ Build concluído sem erros
 
 Imagem < 500MB (otimizada)
 
-Push para ECR confirmado
+Push para Cluster confirmado
 
 Tempo Estimado: 2-3 minutos
 
 Artefatos Gerados:
 
-Imagem Docker armazenada no ECR
+Imagem Docker armazenada no Cluster
 
 
 #### 4 - Deploy (Implantação)  
@@ -407,7 +402,7 @@ Objetivo: Atualizar ambiente DEV para validação interna.
 
 Atividades:
 
-Conexão com AWS EKS
+Conexão com KS local
 
 Force new deployment do serviço integrador-dev
 
@@ -448,7 +443,7 @@ Tempo Estimado: 5 minutos (incluindo aprovação)
 
 ### Prometheus  
 
-No cluster EKS já existente mas em um namespace separado chamado Observability estará o Prometheus .
+No cluster KS já existente mas em um namespace separado chamado Observability estará o Prometheus .
 
 Sua função é a de coletar métricas de todos os Pods (POD01 a POD13), sendo FrontEnd , Nginx, RabbitMQ (filas, consumers, producers), Banco de dados (Base Integrador, replica 1 , replica 2), CronJob, Kubernetes (CPU, memória, rede, número de réplicas, restart de pods).
 
@@ -464,7 +459,7 @@ Banco de dados via Postgres Exporter.
 
 ### Grafana
 
-No cluster EKS já existente mas em um namespace separado chamado Observability estará o Grafana.  
+No cluster KS já existente mas em um namespace separado chamado Observability estará o Grafana.  
 
 Sua função é fonecer dashboards para visualização das métricas provenientes do Prometheus.
 
