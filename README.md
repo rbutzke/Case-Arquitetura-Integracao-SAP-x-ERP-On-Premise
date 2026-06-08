@@ -387,7 +387,9 @@ Deverá seguir os ritos do Scrum , sendo adptado a realidade do Projeto , efetua
 Custo estimado da Workstation Dell Precision 5860 Tower : R$ 34.900,00
 
 Será provisionada uma segunda Workstation identica a acima , formando um cluster Proxmox de 2 nós
-com replicação do armazenamento   
+com replicação do armazenamento.
+
+Sendo assim o valor de 34.900 será x 2 = 69,800
  
 ### Software e Licenças
 
@@ -478,6 +480,10 @@ O RabbitMQ vai estar operando em modo cluster.
 O RabbitMQ deverá possuir Dead Letter Exchange configurada enviando após 3 tentativas falhas para DLQ Consumer
 
 RabbitMQ Queue → Consumer (3 tentativas) → Dead Letter Exchange → DLQ Consumer (alerta humano)
+
+RabbitMQ em modo durável (mensagens persistem no disco)
+
+Kubernetes deverá ter Persistent Volume com backup diário automático
 
 uma Cron Job Adaptativo com Controle de Timeout que executa de 5 em 5 minutos deverá varrer as tabelas e obter os registros com ready for shipment efetuando o envio para o SAP ECC (Autenticação Basic Usuário e Senha) em lotes , atualizando todos que tiveram sucesso para o status processed
 
