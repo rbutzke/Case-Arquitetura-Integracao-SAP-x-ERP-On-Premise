@@ -187,6 +187,58 @@ flowchart TB
   C3 --> C4
 ```
 
+*Figura 3 — Fluxo detalhado da integração Fiscal.*
+
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
+|---|---|---|---|
+| NF Entrada (mercadorias) | XML / evento de NF-e | MIGO (BAPI_GOODSMVT_CREATE) + MIRO | On-line |
+| NF Saída | Pedido de venda / remessa | VF01/VF02 (BAPI_BILLINGDOC_CREATEMULTIPLE) | On-line / batch horário |
+| Condições de imposto | Cadastros de impostos | Condições de imposto + tabelas J_1B* | Diária |
+| CFOP / CST | Tabelas fiscais | Map. de CFOP / CST | Carga inicial + delta |
+| SPED | Dados primários do ERP | Geração no SAP a partir dos dados integrados | Mensal |
+
+---
+
+## Processo 3 — Integração Jurídico
+
+**Escopo:** contratos, processos, partes envolvidas, provisões.
+
+```mermaid
+flowchart TB
+  subgraph ORI["<b>ERP Nacional — Jurídico</b>"]
+    A1["Contratos<br/>(Ativos / Passivos)"]
+    A2["Processos Judiciais<br/>e Administrativos"]
+    A3["Partes Envolvidas<br/>(Autores / Réus)"]
+    A4["Prazos e<br/>Audiências"]
+    A5["Provisões e<br/>Contingências"]
+  end
+
+  subgraph MID["<b>Camada de Integração</b>"]
+    B1{{"Verificação<br/>de Partes"}}
+    B2["Cálculo de<br/>Provisões"]
+    B3["Reconciliação<br/>Contábil"]
+    B4["Alertas de<br/>Prazos"]
+  end
+
+  subgraph DST["<b>SAP ECC</b>"]
+    C1["Z-tables<br/>Contratos (Z-CONTRATO)"]
+    C2["Z-tables<br/>Processos (Z-LITIGIO)"]
+    C3["FI — Provisões<br/>(FB60 / F-31)"]
+    C4["BP — Parceiros<br/>de Negócio"]
+    C5["Workflows<br/>e Aprovações"]
+  end
+
+  A1 --> B1 --> C1
+  A2 --> B1 --> C2
+  A2 --> B2 --> C3
+  A2 --> B3 -.ref.-> C3
+  A3 --> B1 --> C4
+  A4 --> B4 --> C5
+  A5 --> B2 --> C3
+  C1 --> C5
+  C2 --> C5
+```
+
 
 ## Metodologia Aplicada ao Desenvolvimento:
 
