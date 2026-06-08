@@ -35,6 +35,55 @@ Mediante este cenário será construído um integrador ao qual deverá viabiliza
 Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)criado pelo time da empresa XYZ que se encontra hospedado em outro servidor e outra DMZ , o integrador deverá ser construído com base nos contratos desse FrontEnd já existe.
 
 
+## Visão Geral — Arquitetura de Integração
+
+**Legenda**
+
+- 🟧 ERP Nacional (sistemas de origem)
+- ⬜ Camada de Integração (middleware)
+- 🟦 SAP ECC (sistema de destino)
+
+```mermaid
+flowchart LR
+  subgraph EN["<b>ERP NACIONAL</b>"]
+    direction TB
+    EN1["Módulo<br/>Contábil"]
+    EN2["Módulo<br/>Fiscal"]
+    EN3["Módulo<br/>Jurídico"]
+    EN4["Módulo<br/>RH"]
+  end
+
+  subgraph CI["<b>CAMADA DE INTEGRAÇÃO</b>"]
+    direction TB
+    CI1["API Gateway /<br/>ESB"]
+    CI2["Transformação<br/>e Mapeamento"]
+    CI3["Validação de<br/>Negócio"]
+    CI4["Monitoramento<br/>e Logs"]
+  end
+
+  subgraph SE["<b>SAP ECC</b>"]
+    direction TB
+    SE1["FI / CO<br/>(Contábil)"]
+    SE2["FI / MM / SD<br/>(Fiscal)"]
+    SE3["Z-tables<br/>(Jurídico)"]
+    SE4["HCM / PA<br/>(RH)"]
+  end
+
+  EN1 --> CI1
+  EN2 --> CI1
+  EN3 --> CI1
+  EN4 --> CI1
+
+  CI1 --> CI2 --> CI3
+  CI3 --> SE1
+  CI3 --> SE2
+  CI3 --> SE3
+  CI3 --> SE4
+
+  CI3 -.eventos.-> CI4
+  CI1 -.eventos.-> CI4
+```
+
 ## Metodologia Aplicada ao Desenvolvimento:
 
 Para criação do Integrador deverá ser utilizada a metologia SOLID , respeitando o funcionamento do Framework/tecnologia escolhida sem descaracterizar as mesmas.
