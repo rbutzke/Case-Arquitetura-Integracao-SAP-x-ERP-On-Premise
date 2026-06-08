@@ -39,9 +39,9 @@ Ja existe um FrontEnd (em Vue.js de monitoramento e manipulação do integrador)
 
 **Legenda**
 
-- 🟧 ERP Nacional (sistemas de origem)
-- ⬜ Camada de Integração (middleware)
-- 🟦 SAP ECC (sistema de destino)
+- ERP Nacional (Sistema de Origem)
+- Camada de Integração (Integrador)
+- SAP ECC (Sistema de Destino)
 
 ```mermaid
 flowchart LR
@@ -55,7 +55,7 @@ flowchart LR
 
   subgraph CI["<b>CAMADA DE INTEGRAÇÃO</b>"]
     direction TB
-    CI1["API Gateway /<br/>ESB"]
+    CI1["APIs/<br/>"]
     CI2["Transformação<br/>e Mapeamento"]
     CI3["Validação de<br/>Negócio"]
     CI4["Monitoramento<br/>e Logs"]
@@ -176,8 +176,8 @@ flowchart TB
   end
 
   A1 --> B1
-  A1 --> C1
-  A1 --> C2
+  B1 --> C1
+  B1 --> C2
   A2 --> B2 --> C3
   A3 --> B2 --> C3
   A4 --> B1
@@ -270,6 +270,7 @@ flowchart TB
     B2["Cálculo<br/>Líquido / Eventos"]
     B3["Integração<br/>Bancária"]
     B4["Auditoria de<br/>Acessos (SoX)"]
+    B5["Regras de<br/>Jornada / Ponto"]
   end
 
   subgraph DST["<b>SAP ECC — HCM / PA / PY</b>"]
@@ -285,11 +286,41 @@ flowchart TB
   A2 --> B1 --> C2
   A3 --> B2 --> C3 --> C4
   A4 --> B2 --> C3
-  A5 --> C5
-  C3 --> B3 --> C6
-  C1 --> B4
-  C2 --> B4
+A5 --> B5 --> C5
+C3 --> B3 --> C6
+C1 --> B4
+C2 --> B4
 ```
+
+*Figura 5 — Fluxo detalhado da integração RH.*
+
+| Objeto | Origem (ERP Nacional) | Destino (SAP ECC) | Frequência sugerida |
+|---|---|---|---|
+| Cadastro de funcionários | Dados pessoais, contrato | Infotipos PA0000–0002 | On-line (admissão) + batch (alterações) |
+| Organograma | Estrutura organizacional | Infotipos PA0007 / 0008 | Diária |
+| Folha de pagamento | Cálculo do ERP | PC00_M99 (HR PY) — espelho / consolidação | Mensal (fechamento) |
+| Benefícios / Eventos | Férias, afastamentos, 13º | Infotipos PA (férias) + eventos HR PY | Diária / Mensal |
+| Ponto / Frequência | Batidas e ocorrências | Time Management (CAT2 / PT60) | Diária |
+
+---
+
+## Cenários Transversais — Erros, Reconciliação e Governança
+
+```mermaid
+flowchart LR
+  A["Evento no<br/>ERP Nacional"] --> B["Camada de<br/>Integração"]
+  B --> C{{"SAP ECC<br/>aceita?"}}
+  C -- "Sim" --> D["Sucesso<br/>→ Log OK"]
+  C -- "Não" --> E["Fila de Erros<br/>(DLQ)"]
+  E --> F["Alerta<br/>Operacional"]
+  F --> G["Análise<br/>e Correção"]
+  G --> B
+  D --> H["Reconciliação<br/>Periódica"]
+  H --> I["Relatório de<br/>Divergências"]
+  I --> J["Ajuste<br/>Contábil / Fiscal"]
+```
+
+*Figura 6 — Fluxo genérico de tratamento de erros e reconciliação.*
 
 
 ## Metodologia Aplicada ao Desenvolvimento:
