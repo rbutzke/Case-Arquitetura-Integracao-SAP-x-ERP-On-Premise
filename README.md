@@ -237,7 +237,8 @@ Cada Requisição possuirá 60s até apresentar time out , existe um limite de 8
 
 ## Desenho Arquitetural:
 
-<img width="2030" height="786" alt="image" src="https://github.com/user-attachments/assets/3eb9b34c-bf1c-4c06-9825-fc9bdbf63924" />
+<img width="2038" height="750" alt="image" src="https://github.com/user-attachments/assets/26e62698-3472-4d81-adc3-220e351940b7" />
+
 
 
 
